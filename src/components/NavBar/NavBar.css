@@ -1,0 +1,20 @@
+.nav-bar {
+  display: flex;
+  width: 80%;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+/* .nav-bar h1 {
+  width: 30%;
+} */
+.nav-bar a:link,
+.nav-bar a:visited {
+  display: inline-block;
+  padding: 30px;
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  color: red;
+}
