@@ -1,12 +1,15 @@
 import React from "react";
 import Layout from "./components/Layout/Layout";
 import Routes from "./Router/Routes";
+import AuthProvider from "./store/auth-context";
 
 const App = () => {
   return (
-    <Layout>
-      <Routes />
-    </Layout>
+    <AuthProvider>
+      <Layout>
+        <Routes />
+      </Layout>
+    </AuthProvider>
   );
 };
 

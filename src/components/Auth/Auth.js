@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { firebase } from "./../../api/firebase";
 
 const Auth = () => {
   const [formDetails, setFormDetails] = useState({
@@ -12,8 +13,18 @@ const Auth = () => {
     setFormDetails({ ...formDetails, [event.target.name]: event.target.value });
   };
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
+    let endpoint;
+    if (!isLogin) endpoint = "/accounts:signUp";
+    else endpoint = "/accounts:signInWithPassword";
+    const res = await firebase.post(endpoint, {
+      email: formDetails.email,
+      password: formDetails.password,
+      returnSecureToken: true,
+    });
+
+    console.log(res)
   };
   return (
     <div>
